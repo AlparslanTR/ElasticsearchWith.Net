@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElasticsearchNet.API", "ElasticsearchNet.API\ElasticsearchNet.API.csproj", "{CB95DCB7-9975-4C2A-984B-095209B771A0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Çözüm Öğeleri", "Çözüm Öğeleri", "{9CAD04D5-2F47-4712-AD27-D09E34109389}"
+	ProjectSection(SolutionItems) = preProject
+		Docker\docker-compose.yml = Docker\docker-compose.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CB95DCB7-9975-4C2A-984B-095209B771A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB95DCB7-9975-4C2A-984B-095209B771A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB95DCB7-9975-4C2A-984B-095209B771A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB95DCB7-9975-4C2A-984B-095209B771A0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C5C84B36-37B5-4D36-8E34-584839EA195F}
+	EndGlobalSection
+EndGlobal
