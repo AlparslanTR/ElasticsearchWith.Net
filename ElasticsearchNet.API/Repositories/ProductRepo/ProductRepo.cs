@@ -1,4 +1,5 @@
-﻿using ElasticsearchNet.API.Dtos;
+﻿using Elastic.Clients.Elasticsearch;
+using ElasticsearchNet.API.Dtos;
 using ElasticsearchNet.API.Models;
 using Nest;
 
@@ -6,10 +7,11 @@ namespace ElasticsearchNet.API.Repositories.ProductRepo
 {
     public class ProductRepo 
     {
-       private readonly ElasticClient _client;
+        //private readonly ElasticClient _client;
+        private readonly ElasticsearchClient _client;
         private const string indexName = "products";
 
-        public ProductRepo(ElasticClient client)
+        public ProductRepo(ElasticsearchClient client)
         {
             _client = client;
         }
@@ -20,7 +22,7 @@ namespace ElasticsearchNet.API.Repositories.ProductRepo
 
             var response = await _client.IndexAsync(product,x=>x.Index(indexName).Id(Guid.NewGuid().ToString()));
 
-            if(!response.IsValid) return null;
+            if(!response.IsSuccess()) return null;
             product.Id = response.Id;
             return product;
         }
@@ -38,7 +40,7 @@ namespace ElasticsearchNet.API.Repositories.ProductRepo
         {
             var response= await _client.GetAsync<Product>(id, x=>x.Index(indexName));
 
-            if (!response.IsValid)
+            if (!response.IsSuccess())
             {
                 return null;
             }
@@ -48,14 +50,14 @@ namespace ElasticsearchNet.API.Repositories.ProductRepo
 
         public async Task<bool> Update(UpdateProductDto updateProduct)
         {
-            var response = await _client.UpdateAsync<Product,UpdateProductDto>(updateProduct.Id,x=>x.Index(indexName).Doc(updateProduct));
-            return response.IsValid;
+            var response = await _client.UpdateAsync<Product,UpdateProductDto>(indexName,updateProduct.Id,x=>x.Doc(updateProduct));
+            return response.IsSuccess();
         }
 
         public async Task<bool> Delete(string id)
         {
             var response = await _client.DeleteAsync<Product>(id, x => x.Index(indexName));
-            return response.IsValid;
+            return response.IsSuccess();
         }
     }
 }

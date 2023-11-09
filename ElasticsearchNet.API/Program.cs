@@ -3,6 +3,7 @@ using Nest;
 using ElasticsearchNet.API.Extension;
 using ElasticsearchNet.API.Services;
 using ElasticsearchNet.API.Repositories.ProductRepo;
+using ElasticsearchNet.API.Repositories.ECommerceRepo;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddElastic(builder.Configuration);
 builder.Services.AddScoped<ProductService>();
 builder.Services.AddScoped<ProductRepo>();
+builder.Services.AddScoped<ECommerceRepo>();
 
 
 
