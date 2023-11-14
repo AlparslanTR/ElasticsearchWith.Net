@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Save";
+}
+@model AddBlogDto
+<div class="row">
+    <div cite="col-md-6 offset-md-3">
+        <h1>Blog Ekle</h1>
+        <form asp-action="Save" asp-controller="Blog" method="post">
+            <div class="mb-3">
+                <label asp-for="Title"></label>
+                <input class="form-control" type="text" asp-for="Title" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="Content"></label>
+                <input class="form-control" type="text" asp-for="Content" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="Tags"></label>
+                <input class="form-control" type="text" asp-for="Tags" />
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-primary">Kaydet</button>
+            </div>
+        </form>
+    </div>
+</div>
+
