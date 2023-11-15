@@ -1,0 +1,82 @@
+﻿@{
+    ViewData["Title"] = "Search";
+}
+@model SearchPage
+<h1>Search</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Search" asp-controller="ECommerce" method="get">
+                <div class="mb-3">
+                    <label asp-for="Search.CustomerName"></label>
+                    <input class="form-control" type="text" asp-for="Search.CustomerName" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Search.Category"></label>
+                    <input class="form-control" type="text" asp-for="Search.Category" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Search.Gender"></label>
+                    <input class="form-control" type="text" asp-for="Search.Gender" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Search.OrderDateStart"></label>
+                    <input class="form-control" type="date" asp-for="Search.OrderDateStart" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Search.OrderDateEnd"></label>
+                    <input class="form-control" type="date" asp-for="Search.OrderDateEnd" />
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-primary">Ara</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-8">
+            <div class="alert-success">
+                <span>Toplam @Model.TotalCount Kayıt Bulundu</span>
+            </div>
+
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>Müşteri Bilgisi</th>
+                        <th>Kategori</th>
+                        <th>Cinsiyet</th>
+                        <th>Ürün Barkodu</th>
+                        <th>Ürün Bitiş Tarihi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var ecommerce in Model.List)
+                    {
+                        <tr>
+                            <th>@ecommerce.CustomerFullName</th>
+                            <th>@ecommerce.Category</th>
+                            <th>@ecommerce.Gender</th>
+                            <th>@ecommerce.OrderId</th>
+                            <th>@ecommerce.OrderDate</th>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <nav>
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="@Model.CreatePageUrl(Context.Request,1,Model.PageSize)">İlk Sayfa</a>
+                    </li>
+                    @for (int i = Model.StartPage(); i <= Model.EndPage(); i++)
+                    {
+                        <li class="page-item @(Model.Page==i ?"active" : "")">
+                            <a class="page-link" href="@Model.CreatePageUrl(Context.Request,i,Model.PageSize)">@i</a>
+                        </li>
+                    }
+                    <li class="page-item">
+                        <a class="page-link" href="@Model.CreatePageUrl(Context.Request,Model.PageLinkCount,Model.PageSize)">Son Sayfa</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+

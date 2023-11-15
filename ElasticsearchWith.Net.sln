@@ -10,7 +10,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Çözüm Öğeleri", "Çöz
 		Docker\docker-compose.yml = Docker\docker-compose.yml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogUI", "BlogUI\BlogUI.csproj", "{66DAFFF2-1F8F-4103-A066-A73F728DB920}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogUI", "BlogUI\BlogUI.csproj", "{66DAFFF2-1F8F-4103-A066-A73F728DB920}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECommerceUI", "ECommerceUI\ECommerceUI.csproj", "{B9DCBCB1-4050-441D-8207-862DBBBA73B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +28,10 @@ Global
 		{66DAFFF2-1F8F-4103-A066-A73F728DB920}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66DAFFF2-1F8F-4103-A066-A73F728DB920}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66DAFFF2-1F8F-4103-A066-A73F728DB920}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9DCBCB1-4050-441D-8207-862DBBBA73B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9DCBCB1-4050-441D-8207-862DBBBA73B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9DCBCB1-4050-441D-8207-862DBBBA73B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9DCBCB1-4050-441D-8207-862DBBBA73B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
